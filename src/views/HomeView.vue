@@ -163,11 +163,12 @@ nav img {
   padding: 0;
   margin-top: 2rem;
   column-gap: 0px;
-  transition: 0.4s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: 0.2s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 .wrapper button:hover {
   column-gap: 10px;
   letter-spacing: 10px;
+  opacity: 0.3;
 }
 .shop-arrow {
   width: 2rem;
@@ -197,7 +198,7 @@ nav img {
 font-size: 2rem;
 letter-spacing: 8px;
 width: 75%;
-
+padding-bottom: 1rem;
 }
 .about p{
   font-size: 18px;
