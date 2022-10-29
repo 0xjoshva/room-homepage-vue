@@ -1,8 +1,22 @@
 <template>
   <section>
     <nav>
-      <img src="../assets/logo.svg" alt="" id="logo" />
-      <div class="router-links">
+      <img
+        src="../assets/icon-close.svg"
+        alt=""
+        class="close"
+        :class="{ show: !links }"
+        @click="links = !links"
+      />
+      <img
+        src="../assets/icon-hamburger.svg"
+        alt=""
+        class="menu"
+        @click="links = !links"
+        :class="{ show: links }"
+      />
+      <img src="../assets/logo.svg" alt="" id="logo" :class="{ show: links }" />
+      <div class="router-links" :class="{ show: links }">
         <router-link to="/" class="router-link">home</router-link>
         <router-link to="/" class="router-link">shop</router-link>
         <router-link to="/" class="router-link">about</router-link>
@@ -55,12 +69,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      links: false,
+    };
+  },
+};
 </script>
 <style scoped>
 section {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
   background: var(--white);
   font-family: "League Spartan", sans-serif;
 }
@@ -90,6 +111,8 @@ nav img {
   font-size: 18px;
   text-decoration: none;
   color: var(--white);
+  border-bottom: 2px solid transparent;
+  transition: all ease-in-out 0.2s;
 }
 .container {
   display: flex;
@@ -194,15 +217,57 @@ nav img {
   align-items: center;
   padding: 5rem;
 }
-.about h6{
-font-size: 2rem;
-letter-spacing: 8px;
-width: 75%;
-padding-bottom: 1rem;
+.about h6 {
+  font-size: 2rem;
+  letter-spacing: 8px;
+  width: 75%;
+  padding-bottom: 1rem;
 }
-.about p{
+.about p {
   font-size: 18px;
   color: var(--darkgrey);
   width: 75%;
+}
+.router-link:hover {
+  border-bottom: 2px solid var(--white);
+  translate: 0px -2px;
+}
+.menu {
+  display: none;
+}
+
+.show {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  /*Big smartphones [426px -> 600px]*/
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  #carousel-img {
+    min-width: 100%;
+    min-height: 30rem;
+    object-fit: fill;
+  }
+  .router-links {
+    display: none;
+  }
+  .bottom {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu {
+    display: block;
+  }
+  .show {
+    display: none;
+  }
+  nav{
+    padding-top: 4rem;
+  }
+}
+@media only screen and (max-width: 425px) {
+  /*Small smartphones [325px -> 425px]*/
 }
 </style>
