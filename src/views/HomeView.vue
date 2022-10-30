@@ -2,21 +2,21 @@
   <section>
     <nav>
       <img
-        src="../assets/icon-close.svg"
-        alt=""
-        class="close"
-        :class="{ show: !links }"
-        @click="links = !links"
-      />
-      <img
         src="../assets/icon-hamburger.svg"
         alt=""
         class="menu"
         @click="links = !links"
         :class="{ show: links }"
       />
-      <img src="../assets/logo.svg" alt="" id="logo" :class="{ show: links }"/>
-      <div class="router-links" :class="{ showLinks: links }" >
+      <img src="../assets/logo.svg" alt="" id="logo" :class="{ show: links }" />
+      <img
+        src="../assets/icon-close.svg"
+        alt=""
+        class="close"
+        :class="{ show: !links }"
+        @click="links = !links"
+      />
+      <div class="router-links" :class="{ showLinks: links }">
         <router-link to="/" class="router-link">home</router-link>
         <router-link to="/" class="router-link">shop</router-link>
         <router-link to="/" class="router-link">about</router-link>
@@ -251,8 +251,8 @@ nav img {
   .router-links {
     display: none;
   }
-  .showLinks{
-  display: block !important;
+  .showLinks {
+    display: block !important;
   }
   .bottom {
     display: flex;
@@ -264,7 +264,7 @@ nav img {
   .show {
     display: none;
   }
-  nav{
+  nav {
     padding-top: 4rem;
   }
 }
