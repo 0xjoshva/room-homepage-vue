@@ -15,8 +15,8 @@
         @click="links = !links"
         :class="{ show: links }"
       />
-      <img src="../assets/logo.svg" alt="" id="logo" :class="{ show: links }" />
-      <div class="router-links" :class="{ show: links }">
+      <img src="../assets/logo.svg" alt="" id="logo" :class="{ show: links }"/>
+      <div class="router-links" :class="{ showLinks: links }" >
         <router-link to="/" class="router-link">home</router-link>
         <router-link to="/" class="router-link">shop</router-link>
         <router-link to="/" class="router-link">about</router-link>
@@ -189,8 +189,6 @@ nav img {
   transition: 0.2s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 .wrapper button:hover {
-  column-gap: 10px;
-  letter-spacing: 10px;
   opacity: 0.3;
 }
 .shop-arrow {
@@ -252,6 +250,9 @@ nav img {
   }
   .router-links {
     display: none;
+  }
+  .showLinks{
+  display: block !important;
   }
   .bottom {
     display: flex;
